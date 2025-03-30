@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import terminal from "../../assets/terminal.png";
+import arrowup from "../../assets/arrow-up.png";
 
 const MySwal = withReactContent(Swal);
 
@@ -77,7 +79,7 @@ function Contact() {
       <div className="relative min-h-screen h-full flex items-center justify-center flex-col">
         {/* Background Image with Responsive Handling */}
         <img
-          src="src\assets\terminal.png"
+          src={terminal}
           alt="terminal"
           className="absolute inset-0 h-full w-full  z-0  min-h-full"
         />
@@ -145,7 +147,7 @@ function Contact() {
               {loading ? "Sending..." : "Send Message"}
               {!loading && (
                 <img
-                  src="src\assets\arrow-up.png"
+                  src={arrowup}
                   alt="arrow-up"
                   className="field-btn_arrow w-4 h-4 sm:w-5 sm:h-5"
                 />
