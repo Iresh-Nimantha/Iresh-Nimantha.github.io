@@ -122,9 +122,9 @@ const ProjectsSection = () => {
                       <h3 className="text-white font-medium">
                         {project.title}
                       </h3>
-                      <p className="text-gray-400 text-sm truncate max-w-xs">
+{/*                       <p className="text-gray-400 text-sm truncate max-w-xs">
                         {project.desc}
-                      </p>
+                      </p> */}
                     </div>
                   </div>
                 </motion.div>
