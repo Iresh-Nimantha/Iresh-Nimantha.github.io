@@ -21,13 +21,13 @@ function App() {
     // </div>
     <HashRouter>
       <Routes>
-       <Route path="/" element={<PortfolioLayout3 />} />
+{/*        <Route path="/" element={<PortfolioLayout3 />} />
          <Route path="/about-me" element={<AboutMeSection />} />
          <Route path="/hero" element={<HeroSection />} />
          <Route path="/skills" element={<SkillsSection />} />
          <Route path="/projects" element={<ProjectsSection />} />
-         <Route path="/contact" element={<Contact />} />
-         <Route path="/all" element={<All />} />
+         <Route path="/contact" element={<Contact />} /> */}
+         <Route path="/" element={<All />} />
       </Routes>
     </HashRouter>
   );
