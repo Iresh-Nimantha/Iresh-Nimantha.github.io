@@ -1,24 +1,24 @@
 import React from "react";
-import HeroSection from "./sections/HeroSection";
-import AboutMeSection from "./sections/AboutSection";
-import SkillsSection from "./sections/SkillsSection";
-import ProjectsSection from "./sections/ProjectsSection";
+import HeroSectionAll from "./sections/HeroSection";
+import AboutMeSectionAll from "./sections/AboutSection";
+import SkillsSectionAll from "./sections/SkillsSection";
+import ProjectsSectionAll from "./sections/ProjectsSection";
 
-import FooterSection from "./sections/FooterSection";
-import NavBar from "./sections/NavBar";
-import Contact from "./sections/Contact";
+import FooterSectionAll from "./sections/FooterSection";
+import NavBarAll from "./sections/NavBar";
+import ContactAll from "./sections/Contact";
 
 function All() {
   return (
     <>
-      <NavBar />
-      <HeroSection />
-      <AboutMeSection />
-      <SkillsSection />
-      <ProjectsSection />
+      <NavBarAll />
+      <HeroSectionAll />
+      <AboutMeSectionAll />
+      <SkillsSectionAll />
+      <ProjectsSectionAll />
 
-      <Contact />
-      <FooterSection />
+      <ContactAll />
+      <FooterSectionAll />
     </>
   );
 }
