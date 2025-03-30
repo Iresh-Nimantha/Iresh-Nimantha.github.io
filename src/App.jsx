@@ -2,7 +2,7 @@ import React from "react";
 
 import PortfolioLayout3 from "./components/PortfolioLayout copy 2";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import AboutMeSection from "./components/sections/AboutSection";
 import HeroSection from "./components/sections/HeroSection";
 import SkillsSection from "./components/sections/SkillsSection";
@@ -19,7 +19,7 @@ function App() {
     //   <PortfolioLayout3 />
     //   {/* <ResizableSidebar /> */}
     // </div>
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<PortfolioLayout3 />} />
         <Route path="/about-me" element={<AboutMeSection />} />
@@ -29,7 +29,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/all" element={<All />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
