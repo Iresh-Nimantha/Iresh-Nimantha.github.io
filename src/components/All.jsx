@@ -10,7 +10,7 @@ import Contact from "./sections/Contact";
 
 function All() {
   return (
-    <div>
+    <>
       <NavBar />
       <HeroSection />
       <AboutMeSection />
@@ -19,7 +19,7 @@ function All() {
 
       <Contact />
       <FooterSection />
-    </div>
+    </>
   );
 }
 
