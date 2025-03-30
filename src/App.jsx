@@ -22,12 +22,11 @@ function App() {
     <HashRouter>
       <Routes>
           <Route path="/" element={<PortfolioLayout3 />} />
-          <Route path="/#about" element={<AboutMeSection />} />
-          <Route path="/#hero" element={<HeroSection />} />
-          <Route path="/#skills" element={<SkillsSection />} />
-          <Route path="/#projects" element={<ProjectsSection />} />
-          <Route path="/#contact" element={<Contact />} />
-          <Route path="/#all" element={<All />} />
+         <Route path="/about-me" element={<AboutMeSection />} />
+         <Route path="/hero" element={<HeroSection />} />
+         <Route path="/skills" element={<SkillsSection />} />
+         <Route path="/projects" element={<ProjectsSection />} />
+         <Route path="/contact" element={<Contact />} />
         </Routes>
     </HashRouter>
   );
