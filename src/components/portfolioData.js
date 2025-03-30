@@ -8,7 +8,7 @@ import threejs from "../assets/Threejs.svg";
 import expressjs from "../assets/expressjs.png";
 //import mongoDB from "../assets/mongodb.png";
 import nodejs from "../assets/nodejs.png";
-import bootstrap from "../assets/bootstrap.svg";
+
 import mysql from "../assets/mysql.svg";
 import php from "../assets/php.svg";
 import wordpress from "../assets/wordpress.svg";
