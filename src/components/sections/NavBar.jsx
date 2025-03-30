@@ -9,11 +9,11 @@ const NavBar = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const navItems = [
-   { name: "Home", link: "/#home" },
-  { name: "About Me", link: "/#about" },
-  { name: "Skills", link: "/#skills" },
-  { name: "Projects", link: "/#projects" },
-  { name: "Contact Me", link: "/#contact" },
+   { name: "Home", href: "/#home" },
+  { name: "About Me", href: "/#about" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Contact Me", href: "/#contact" },
   ];
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const NavBar = () => {
             {navItems.map((item, index) => (
               <motion.a
                 key={index}
-                href={item.link}
+                href={item.href}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -115,7 +115,7 @@ const NavBar = () => {
             {navItems.map((item, index) => (
               <a
                 key={index}
-                href={item.link}
+                href={item.href}
                 onClick={() => setIsOpen(false)}
                 className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
               >
