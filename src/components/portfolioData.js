@@ -11,7 +11,7 @@ import nodejs from "../assets/nodejs.png";
 
 import mysql from "../assets/mysql.svg";
 import php from "../assets/php.svg";
-import wordpress from "../assets/wordpress.svg";
+//import wordpress from "../assets/wordpress.svg";
 import elementor from "../assets/elementor.svg";
 import css from "../assets/css.svg";
 import javascript from "../assets/js.svg";
@@ -162,7 +162,7 @@ export const wordpressProjects = [
     },
     spotlight: spotlight5,
     tags: [
-      { id: 1, name: "WordPress", path: wordpress },
+      { id: 1, name: "WordPress", path: expressjs },
       { id: 2, name: "Elementor", path: elementor },
       { id: 3, name: "CSS", path: css },
       { id: 4, name: "JavaScript", path: javascript },
