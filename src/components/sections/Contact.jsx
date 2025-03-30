@@ -1,163 +1,143 @@
-import React, { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
-import terminal from "../../assets/terminal.png";
-import arrowup from "../../assets/arrow-up.png";
+import React from "react";
+import { motion } from "framer-motion";
+import { HiAcademicCap, HiLightBulb } from "react-icons/hi";
+import avatar from "../../assets/avatar/avatar1.jpg";
 
-const MySwal = withReactContent(Swal);
-
-function Contact() {
-  const formRef = useRef();
-  const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = ({ target: { name, value } }) => {
-    setForm({ ...form, [name]: value });
+const AboutMe = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) {
-      MySwal.fire({
-        title: "Invalid Email",
-        text: "Please enter a valid email address.",
-        icon: "error",
-        background: "#2f2f2f",
-        color: "#fff",
-        confirmButtonColor: "#3085d6",
-      });
-      setLoading(false);
-      return;
-    }
-
-    emailjs
-      .sendForm(
-        "service_fsue47a",
-        "template_uab6fvw",
-        formRef.current,
-        "0FnHRP6EW5pTVPjBx"
-      )
-      .then(
-        () => {
-          setLoading(false);
-          MySwal.fire({
-            title: "Success!",
-            text: "Your message has been sent.",
-            icon: "success",
-            background: "#2f2f2f",
-            color: "#fff",
-            confirmButtonColor: "#3085d6",
-          });
-          setForm({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          setLoading(false);
-          MySwal.fire({
-            title: "Oops...",
-            text: "Something went wrong. Please try again.",
-            icon: "error",
-            background: "#2f2f2f",
-            color: "#fff",
-            confirmButtonColor: "#d33",
-          });
-          console.error(error);
-        }
-      );
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6 },
+    },
   };
 
   return (
-    <section className="c-space bg-slate-900" id="contact">
-      <div className="relative min-h-screen h-full flex items-center justify-center flex-col">
-        {/* Background Image with Responsive Handling */}
-        <img
-          src={terminal}
-          alt="terminal"
-          className="absolute inset-0 h-full w-full  z-0  min-h-full"
-        />
+    <section id="about" className="py-20 bg-gray-900 relative">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-900/10 to-transparent"></div>
 
-        {/* Contact Container with Responsive Padding */}
-        <div className="contact-container py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 mt-12 relative z-10 w-full max-w-xl">
-          {/* Responsive Heading */}
-          <h3 className="head-text text-2xl sm:text-3xl md:text-4xl text-center">
-            Contact me
-          </h3>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+          className="max-w-4xl mx-auto"
+        >
+          {/* Section header */}
+          <motion.div variants={itemVariants} className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Get to Know Me
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-400 mx-auto"></div>
+          </motion.div>
 
-          {/* Responsive Form */}
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="mt-8 sm:mt-12 md:mt-16 flex flex-col space-y-4 sm:space-y-5 md:space-y-6"
-          >
-            <label className="space-y-2 sm:space-y-3">
-              <span className="field-label block text-sm sm:text-base">
-                Full Name
-              </span>
-              <input
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleChange}
-                required
-                className="field-input w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base"
-                placeholder="Liam Oliver"
-              />
-            </label>
-            <label className="space-y-2 sm:space-y-3">
-              <span className="field-label block text-sm sm:text-base">
-                Email
-              </span>
-              <input
-                type="email"
-                name="email"
-                value={form.email}
-                onChange={handleChange}
-                required
-                className="field-input w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base"
-                placeholder="Liam@gmail.com"
-              />
-            </label>
-            <label className="space-y-2 sm:space-y-3">
-              <span className="field-label block text-sm sm:text-base">
-                Your message
-              </span>
-              <textarea
-                name="message"
-                value={form.message}
-                onChange={handleChange}
-                required
-                rows={4}
-                className="field-input w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base"
-                placeholder="Share your thoughts or inquiries..."
-              />
-            </label>
-            <button
-              className="field-btn flex items-center justify-center space-x-2 sm:space-x-3"
-              type="submit"
-              disabled={loading}
+          <div className="grid md:grid-cols-5 gap-8">
+            {/* Image/avatar column */}
+            <motion.div
+              variants={itemVariants}
+              className="md:col-span-2 flex flex-col items-center md:items-start"
             >
-              {loading ? "Sending..." : "Send Message"}
-              {!loading && (
+              <div className="w-48 h-48 rounded-full border-4 border-blue-600/20 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative mb-4">
                 <img
-                  src={arrowup}
-                  alt="arrow-up"
-                  className="field-btn_arrow w-4 h-4 sm:w-5 sm:h-5"
+                  src={avatar}
+                  alt="User Avatar"
+                  className="w-48 h-48 full rounded-full object-cover"
                 />
-              )}
-            </button>
-          </form>
-        </div>
+              </div>
+            </motion.div>
+
+            {/* Bio column */}
+            <motion.div variants={itemVariants} className="md:col-span-3">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Hi there! I'm{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                  Iresh
+                </span>
+              </h3>
+
+              <p className="text-gray-300 mb-6 leading-relaxed">
+                I am an undergraduate student at the University of Colombo,
+                Faculty of Technology, specializing in Bachelor of Information
+                and Communication Technology (BICT). I love creating innovative
+                web solutions and exploring new technologies.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                <div className="flex items-start space-x-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-900/30 flex items-center justify-center flex-shrink-0 mt-1">
+                    <HiAcademicCap className="text-blue-400 text-xl" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-white">
+                      Education
+                    </h4>
+                    <p className="text-gray-400 text-sm">
+                      BSc in Information and Communication Technology (BICT),
+                      University of Colombo
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-900/30 flex items-center justify-center flex-shrink-0 mt-1">
+                    <HiLightBulb className="text-blue-400 text-xl" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-medium text-white">Passion</h4>
+                    <p className="text-gray-400 text-sm">
+                      Creating innovative web solutions and exploring emerging
+                      technologies
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 cursor-pointer">
+                <button
+                  type="button"
+                  onClick={() => (window.location.href = "#contact")}
+                  className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium transition-transform duration-300 hover:translate-y-[-2px] hover:shadow-lg shadow-blue-500/20"
+                >
+                  Get in Touch
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Style for the grid pattern */}
+      <style jsx>{`
+        .bg-grid-pattern {
+          background-size: 50px 50px;
+          background-image: linear-gradient(
+              to right,
+              rgba(66, 153, 225, 0.05) 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              to bottom,
+              rgba(66, 153, 225, 0.05) 1px,
+              transparent 1px
+            );
+        }
+      `}</style>
     </section>
   );
-}
+};
 
-export default Contact;
+export default AboutMe;
