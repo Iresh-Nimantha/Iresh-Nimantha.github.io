@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiMenuAlt3, HiX, HiCode } from "react-icons/hi";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom"; // for internal routing
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -115,22 +116,22 @@ const NavBar = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col space-y-4">
             {navItems.map((item, index) => (
-              <a
+              <Link
                 key={index}
-                href={item.link}
+                to={item.link} // Use Link for internal navigation
                 onClick={() => setIsOpen(false)}
                 className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
+            <Link
+              to="#contact"
               onClick={() => setIsOpen(false)}
               className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
             >
               Let's Connect
-            </a>
+            </Link>
           </div>
         </div>
       </motion.div>
