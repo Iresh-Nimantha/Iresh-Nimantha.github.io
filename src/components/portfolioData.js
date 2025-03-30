@@ -28,10 +28,19 @@ import spotlight6 from "../assets/spotlight1.png";
 // Import project logos
 import jobNexusLogo from "../assets/jobNexus.png";
 import aswanna from "../assets/aswanna.png";
+
 import ucmcLogo from "../assets/UCMC.png";
 import portfolioLogo from "../assets/jobNexus.png";
 import rcfmsLogo from "../assets/RCFMS.png";
 import writeSphere from "../assets/WriteSphere.png";
+
+//videos
+import RCFMSVideo from "../assets/RCFMS.mp4";
+import jobNexusVideo from "../assets/jobNexus.mp4";
+import aswannaVideo from "../assets/aswanna.mp4";
+import writeSphereVideo from "../assets/WriteSphere.mp4";
+import tDportfolioVideo from "../assets/3Dportfolio.mp4";
+import ucmcVideo from "../assets/wpUCMC.mp4";
 
 // Full Stack Projects (id: 1, 3, 4)
 export const fullStackProjects = [
@@ -42,7 +51,7 @@ export const fullStackProjects = [
     subdesc:
       "Built with React, Tailwind CSS, Laravel, and Google Gemini API. This is a group project, and my part includes developing the landing page, implementing the crop disease identification feature, integrating feedback and contact sections, displaying agricultural officer details, creating a forum section, and adding a chatbot.",
     href: "https://github.com/sahansara/Agricultural-Information-Platform-with-Crop-Calendar.git",
-    texture: "src/assets/aswanna.mp4",
+    texture: aswannaVideo,
     logo: aswanna,
     logoStyle: {
       backgroundColor: "#60f5a1",
@@ -63,7 +72,7 @@ export const fullStackProjects = [
     desc: "A job platform connecting job seekers with relevant opportunities.",
     subdesc: "Built with MERN (MongoDB, Express, React, Node.js).",
     href: "https://github.com/Iresh-Nimantha/Job-Seeking-Sharing-Platform-JobNexus",
-    texture: "src/assets/jobNexus.mp4",
+    texture: jobNexusVideo,
     logo: jobNexusLogo,
     logoStyle: {
       backgroundColor: "#60f5a1",
@@ -84,7 +93,7 @@ export const fullStackProjects = [
     desc: "A blog platform with authentication, post management, and comments.",
     subdesc: "Built with Laravel, Tailwind, and MySQL.",
     href: "https://github.com/Iresh-Nimantha/WriteSphere_Blog_posting_site",
-    texture: "src/assets/WriteSphere.mp4",
+    texture: writeSphereVideo,
     logo: writeSphere,
     logoStyle: {
       backgroundColor: "#1E88E5 ",
@@ -109,7 +118,7 @@ export const frontEndProjects = [
     desc: "A 3D portfolio website with customizable and interactive features.",
     subdesc: "Built with React, Three.js, and Tailwind CSS.",
     href: "https://github.com/Iresh-Nimantha/iresh-nimantha-3Dportfolio",
-    texture: "src/assets/3Dportfolio.mp4",
+    texture: tDportfolioVideo,
     logo: portfolioLogo,
     logoStyle: {
       backgroundColor: "#13202F",
@@ -130,7 +139,7 @@ export const frontEndProjects = [
     desc: "A web-based system for managing road crime fines efficiently.",
     subdesc: "Built with React.js and Tailwind CSS.",
     href: "https://iresh-nimantha.github.io/frontend-RCFMS/",
-    texture: "src/assets/RCFMS.mp4",
+    texture: RCFMSVideo,
     logo: rcfmsLogo,
     logoStyle: {
       backgroundColor: "#1E88E5",
@@ -153,7 +162,7 @@ export const wordpressProjects = [
     desc: "Official website for the University of Colombo Music Circle.",
     subdesc: "Created with WordPress and Elementor.",
     href: "",
-    texture: "src/assets/wpUCMC.mp4",
+    texture: ucmcVideo,
     logo: ucmcLogo,
     logoStyle: {
       backgroundColor: "#673AB7",
