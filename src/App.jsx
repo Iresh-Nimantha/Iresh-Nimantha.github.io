@@ -27,6 +27,7 @@ function App() {
          <Route path="/skills" element={<SkillsSection />} />
          <Route path="/projects" element={<ProjectsSection />} />
          <Route path="/contact" element={<Contact />} />
+        <Route path="/all" element={<All />} />
         </Routes>
     </HashRouter>
   );
