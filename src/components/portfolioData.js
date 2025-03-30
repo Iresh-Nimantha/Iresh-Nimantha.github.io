@@ -13,7 +13,7 @@ import mysql from "../assets/mysql.svg";
 import php from "../assets/php.svg";
 //import wordpress from "../assets/wordpress.svg";
 import elementor from "../assets/elementor.svg";
-import css from "../assets/css.svg";
+//import css from "../assets/css.svg";
 import javascript from "../assets/js.svg";
 import webgl from "../assets/webgl.svg";
 
@@ -164,7 +164,7 @@ export const wordpressProjects = [
     tags: [
       { id: 1, name: "WordPress", path: expressjs },
       { id: 2, name: "Elementor", path: elementor },
-      { id: 3, name: "CSS", path: css },
+      { id: 3, name: "CSS", path: expressjs },
       { id: 4, name: "JavaScript", path: javascript },
     ],
   },
