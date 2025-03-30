@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { HiAcademicCap, HiCode, HiLightBulb, HiChip } from "react-icons/hi";
-import avatar from "../../assets/avatar/avatar1.jpg"; // Adjust the path to your avatar image
+import { HiAcademicCap, HiLightBulb } from "react-icons/hi";
+import avatar from "../../assets/avatar/avatar1.jpg";
+
 const AboutMe = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -51,17 +52,11 @@ const AboutMe = () => {
               className="md:col-span-2 flex flex-col items-center md:items-start"
             >
               <div className="w-48 h-48 rounded-full border-4 border-blue-600/20 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden relative mb-4">
-                {/* <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-                    IR
-                  </span> */}
-                <div className="absolute inset-0 flex items-center justify-center text-5xl">
-                  <img
-                    src={avatar}
-                    alt="User Avatar"
-                    className="w-48 h-48 full rounded-full object-cover"
-                  />
-                </div>
-                <div className="absolute inset-0 rounded-full shadow-inner border border-blue-500/10"></div>
+                <img
+                  src={avatar}
+                  alt="User Avatar"
+                  className="w-48 h-48 full rounded-full object-cover"
+                />
               </div>
             </motion.div>
 
