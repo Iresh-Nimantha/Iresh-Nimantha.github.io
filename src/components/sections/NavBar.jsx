@@ -6,7 +6,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
- const navItems = [
+  const navItems = [
     { name: "Home", link: "/all#home" },
     { name: "About Me", link: "/all#about" },
     { name: "Skills", link: "/all#skills" },
@@ -24,6 +24,17 @@ const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleNavLinkClick = (link) => {
+    const sectionId = link.split("#")[1]; // Extract the section ID
+    if (sectionId) {
+      const element = document.getElementById(sectionId); // Use getElementById
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsOpen(false); // Close mobile menu after clicking
+  };
 
   return (
     <nav
@@ -59,6 +70,10 @@ const NavBar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300 relative group"
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default link behavior
+                  handleNavLinkClick(item.link);
+                }}
               >
                 <span className="relative z-10">{item.name}</span>
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
@@ -73,6 +88,10 @@ const NavBar = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="hidden md:flex px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium text-sm transition-transform duration-300 hover:translate-y-[-2px] hover:shadow-md shadow-blue-500/20"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavLinkClick("/all#contact");
+            }}
           >
             Let's Connect
           </motion.a>
@@ -83,11 +102,7 @@ const NavBar = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-white focus:outline-none"
             >
-              {isOpen ? (
-                <HiX className="text-2xl" />
-              ) : (
-                <HiMenuAlt3 className="text-2xl" />
-              )}
+              {isOpen ? <HiX className="text-2xl" /> : <HiMenuAlt3 className="text-2xl" />}
             </button>
           </div>
         </div>
@@ -109,7 +124,7 @@ const NavBar = () => {
                   <a
                     key={index}
                     href={item.link}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => handleNavLinkClick(item.link)}
                     className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
                   >
                     {item.name}
@@ -117,7 +132,7 @@ const NavBar = () => {
                 ))}
                 <a
                   href="#contact"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleNavLinkClick("/all#contact")}
                   className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
                 >
                   Let's Connect
