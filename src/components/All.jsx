@@ -1,4 +1,3 @@
-// All.jsx
 import React, { useEffect } from "react";
 import NavBar from "./sections/NavBar";
 import HeroSection from "./sections/HeroSection";
@@ -12,18 +11,10 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      // Check if hash starts with '/all#'
-      if (hash.startsWith('/all#')) {
-        // Extract the section ID after '/all#'
-        const sectionId = hash.substring(5); // 5 is the length of '/all#'
-
-        // Only attempt to scroll if a sectionId exists
-        if (sectionId) {
-          const element = document.querySelector(`#${sectionId}`);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
+      const sectionId = hash.substring(1); // Remove the '#'
+      const element = document.querySelector(`#${sectionId}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, []);
