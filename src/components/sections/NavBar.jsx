@@ -53,6 +53,10 @@ const NavBar = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className="flex items-center space-x-2"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavLinkClick("/all#home");
+            }}
           >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center text-white">
               <HiCode className="text-xl" />
@@ -83,7 +87,7 @@ const NavBar = () => {
 
           {/* Contact Button (Desktop) */}
           <motion.a
-            href="#contact"
+            href="/all#contact"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -124,7 +128,10 @@ const NavBar = () => {
                   <a
                     key={index}
                     href={item.link}
-                    onClick={() => handleNavLinkClick(item.link)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavLinkClick(item.link);
+                    }}
                     className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
                   >
                     {item.name}
@@ -132,7 +139,10 @@ const NavBar = () => {
                 ))}
                 <a
                   href="/all#contact"
-                  onClick={() => handleNavLinkClick("/all#contact")}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavLinkClick("/all#contact");
+                  }}
                   className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
                 >
                   Let's Connect
