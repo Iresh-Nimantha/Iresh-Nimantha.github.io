@@ -1,5 +1,5 @@
 // All.jsx
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import NavBar from "./sections/NavBar";
 import HeroSection from "./sections/HeroSection";
 import AboutMeSection from "./sections/AboutSection";
@@ -12,9 +12,13 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // Extract the section ID (e.g., 'skills', 'about', 'contact')
+      const sectionId = hash.split("#")[1]; // Split the hash at '#' and get the second part
+      if (sectionId) {
+        const element = document.querySelector(`#${sectionId}`); // Use '#' to target the id
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   }, []);
