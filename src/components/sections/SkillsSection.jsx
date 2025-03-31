@@ -13,7 +13,7 @@ import cIcon from "../../assets/CL.png";
 import jsIcon from "../../assets/js.svg";
 import phpIcon from "../../assets/php.svg";
 import htmlIcon from "../../assets/HTML.svg";
-import cssIcon from "../../assets/Css.svg";
+import cssIcon from "../../assets/css.svg";
 import { style } from "framer-motion/client";
 
 // Note: Import your actual icons here
