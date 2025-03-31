@@ -30,7 +30,7 @@ function Footer() {
     {
       name: "email",
       icon: Mail,
-      url: `mailto:${email}`,
+      url: "https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent?compose=new",
     },
   ];
 
@@ -42,34 +42,20 @@ function Footer() {
     setActiveIcon(null);
   };
 
-  const copyToClipboard = () => {
-    navigator.clipboard.writeText(email).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-
-      // Check if Swal is defined (SweetAlert2)
-      if (typeof Swal !== "undefined") {
-        Swal.fire({
-          title: "Copied!",
-          text: "Email has been copied to clipboard.",
-          icon: "success",
-          confirmButtonText: "Great!",
-          background: "#252526",
-          color: "#fff",
-          confirmButtonColor: "#4CAF50",
-        });
-      }
-    });
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <footer className="py-6 border-t border-gray-700 bg-gray-900 px-4 md:px-8">
+    <section className="py-6 border-t border-gray-700 bg-gray-900 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
-          {/* Left - Privacy Policy (Mobile: top) */}
-          <div className="group order-1 md:order-1">
+        <div className="flex flex-row items-center justify-between">
+          {/* Left - Privacy Policy */}
+          <div className="group">
             <a
-              href="#"
+              href="/privacy"
               className="text-gray-400 hover:text-white transition-colors duration-200 flex items-center gap-2"
             >
               <span>Privacy Policy</span>
@@ -79,9 +65,8 @@ function Footer() {
               />
             </a>
           </div>
-
-          {/* Center - Social Links + Email Copy (Mobile: middle) */}
-          <div className="flex flex-col items-center gap-4 order-3 md:order-2">
+          {/* Center - Social Links + Email Copy */}
+          <div className="flex flex-col items-center gap-4">
             <div className="flex gap-4">
               {socialLinks.map((link, index) => (
                 <a
@@ -112,20 +97,19 @@ function Footer() {
                 </a>
               ))}
             </div>
-
             {/* Email Section with Copy Icon */}
             <div className="text-sm md:text-base lg:text-lg font-semibold text-gray-300 flex flex-wrap items-center justify-center gap-2">
               <span>Reach me at</span>
               <a
-                href={`mailto:${email}?subject=Hello&body=I%20would%20like%20to%20connect!`}
+                href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent?compose=new"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors"
               >
-                {email}
+                Email
               </a>
               <button
-                onClick={copyToClipboard}
+                onClick={copyEmail}
                 className="text-blue-400 hover:text-blue-300 transition-colors flex items-center"
                 aria-label="Copy email address"
               >
@@ -137,14 +121,13 @@ function Footer() {
               </button>
             </div>
           </div>
-
-          {/* Right - Copyright (Mobile: bottom) */}
-          <p className="text-gray-400 text-sm order-2 md:order-3">
-            © {new Date().getFullYear()} Iresh. All rights reserved.
+          {/* Right - Copyright */}
+          <p className="text-gray-400 text-sm">
+            © 2025 Iresh. All rights reserved.
           </p>
         </div>
       </div>
-    </footer>
+    </section>
   );
 }
 
