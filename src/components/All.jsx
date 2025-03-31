@@ -43,8 +43,8 @@ function All() {
 
   return (
     <div>
-      {location.pathname === '/all' && (
-        <>
+      
+     
           <NavBar />
           <HeroSection />
           <AboutMeSection />
@@ -52,8 +52,7 @@ function All() {
           <ProjectsSection />
           <Contact />
           <FooterSection />
-        </>
-      )}
+  
     </div>
   );
 }
