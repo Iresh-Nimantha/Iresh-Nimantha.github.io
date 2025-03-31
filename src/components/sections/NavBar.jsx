@@ -26,14 +26,14 @@ const NavBar = () => {
   }, []);
 
   const handleNavLinkClick = (link) => {
-    const sectionId = link.split("#")[1];
+    const sectionId = link.split("#")[1]; // Extract the section ID
     if (sectionId) {
-      const element = document.getElementById(sectionId);
+      const element = document.getElementById(sectionId); // Use getElementById
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
-    setIsOpen(false);
+    setIsOpen(false); // Close mobile menu after clicking
   };
 
   return (
@@ -46,7 +46,7 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo and Name */}
           <motion.a
             href="/all#home"
             initial={{ opacity: 0 }}
@@ -75,7 +75,7 @@ const NavBar = () => {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className="text-gray-300 hover:text-blue-400 transition-colors duration-300 relative group"
                 onClick={(e) => {
-                  e.preventDefault();
+                  e.preventDefault(); // Prevent default link behavior
                   handleNavLinkClick(item.link);
                 }}
               >
@@ -88,9 +88,9 @@ const NavBar = () => {
           {/* Contact Button (Desktop) */}
           <motion.a
             href="/all#contact"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             className="hidden md:flex px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium text-sm transition-transform duration-300 hover:translate-y-[-2px]"
             onClick={(e) => {
               e.preventDefault();
@@ -125,34 +125,28 @@ const NavBar = () => {
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item, index) => (
-                  <motion.a
+                  <a
                     key={index}
                     href={item.link}
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavLinkClick(item.link);
                     }}
+                    className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
                   >
                     {item.name}
-                  </motion.a>
+                  </a>
                 ))}
-                <motion.a
+                <a
                   href="/all#contact"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.2 }}
-                  className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavLinkClick("/all#contact");
                   }}
+                  className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
                 >
                   Let's Connect
-                </motion.a>
+                </a>
               </div>
             </div>
           </motion.div>
