@@ -12,12 +12,14 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      // Remove '/all' from the beginning of the hash
+      // Remove '/all#' from the beginning of the hash
       const cleanedHash = hash.replace('/all#', '');
 
       // Extract the section ID (e.g., 'skills', 'about', 'contact')
-      const sectionId = cleanedHash.split("#")[1]; // Split the cleaned hash at '#' and get the second part
+      const parts = cleanedHash.split("#");
+      const sectionId = parts[1]; // Get the second part
 
+      // Only attempt to scroll if a sectionId exists
       if (sectionId) {
         const element = document.querySelector(`#${sectionId}`); // Use '#' to target the id
         if (element) {
