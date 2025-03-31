@@ -12,9 +12,20 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      // Check if hash starts with '/all#'
-      if (hash.startsWith('/all#')) {
-        // Extract the section ID after '/all#'
+      // Check for #/all# or /all# formats
+      if (hash.startsWith('#/all#')) {
+        // Extract the section ID after #/all#
+        const sectionId = hash.substring(7); // 7 is the length of '#/all#'
+
+        // Only attempt to scroll if a sectionId exists
+        if (sectionId) {
+          const element = document.querySelector(`#${sectionId}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      } else if (hash.startsWith('/all#')) {
+        // Extract the section ID after /all#
         const sectionId = hash.substring(5); // 5 is the length of '/all#'
 
         // Only attempt to scroll if a sectionId exists
@@ -24,6 +35,13 @@ function All() {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }
+      } else {
+          // Handle other hash cases such as #skills
+          const sectionId = hash.substring(1);
+          const element = document.querySelector(`#${sectionId}`);
+          if (element) {
+            element.scrollIntoView({behavior: 'smooth'})
+          }
       }
     }
   }, []);
