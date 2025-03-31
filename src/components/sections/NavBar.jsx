@@ -1,29 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { HiMenuAlt3, HiX, HiCode } from "react-icons/hi";
-import { useMediaQuery } from "react-responsive";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const navItems = [
-   { name: "Home", href: "/#home" },
-  { name: "About Me", href: "/#about" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Contact Me", href: "/#contact" },
+    { name: "Home", link: "#home" },
+    { name: "About Me", link: "#about" },
+    { name: "Skills", link: "#skills" },
+    { name: "Projects", link: "#projects" },
+    { name: "Contact Me", link: "#contact" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -53,9 +46,7 @@ const NavBar = () => {
             <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-400 flex items-center justify-center text-white">
               <HiCode className="text-xl" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-white">Iresh</span>
-            </div>
+            <span className="text-xl font-bold text-white">Iresh</span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -63,7 +54,7 @@ const NavBar = () => {
             {navItems.map((item, index) => (
               <motion.a
                 key={index}
-                href={item.href}
+                href={item.link}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -74,6 +65,7 @@ const NavBar = () => {
               </motion.a>
             ))}
           </div>
+
           {/* Contact Button (Desktop) */}
           <motion.a
             href="#contact"
@@ -84,6 +76,7 @@ const NavBar = () => {
           >
             Let's Connect
           </motion.a>
+
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
@@ -101,37 +94,39 @@ const NavBar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <motion.div
-        initial={{ opacity: 0, height: 0 }}
-        animate={{
-          opacity: isOpen ? 1 : 0,
-          height: isOpen ? "auto" : 0,
-        }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-gray-900/95 backdrop-blur-md"
-      >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col space-y-4">
-            {navItems.map((item, index) => (
-              <a
-                key={index}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
-              >
-                {item.name}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setIsOpen(false)}
-              className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
-            >
-              Let's Connect
-            </a>
-          </div>
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="absolute top-full left-0 w-full bg-gray-900/95 backdrop-blur-md md:hidden"
+          >
+            <div className="container mx-auto px-4 py-4">
+              <div className="flex flex-col space-y-4">
+                {navItems.map((item, index) => (
+                  <a
+                    key={index}
+                    href={item.link}
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-300 hover:text-blue-400 py-2 transition-colors duration-300 border-b border-gray-800"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                <a
+                  href="#contact"
+                  onClick={() => setIsOpen(false)}
+                  className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
+                >
+                  Let's Connect
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
