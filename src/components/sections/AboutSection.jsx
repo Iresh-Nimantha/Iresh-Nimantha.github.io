@@ -106,7 +106,7 @@ const AboutMe = () => {
                 </div>
               </div>
 
-              <div className="mt-8 cursor-pointer">
+{/*               <div className="mt-8 cursor-pointer">
                 <button
                   type="button"
                   onClick={() => (window.location.href = "#contact")}
@@ -114,7 +114,7 @@ const AboutMe = () => {
                 >
                   Get in Touch
                 </button>
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </motion.div>
