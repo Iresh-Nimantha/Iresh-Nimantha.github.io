@@ -91,7 +91,7 @@ const NavBar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
-            className="hidden md:flex px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium text-sm transition-transform duration-300 hover:translate-y-[-2px] hover:shadow-md shadow-blue-500/20"
+            className="hidden md:flex px-5 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium text-sm transition-transform duration-300 hover:translate-y-[-2px]"
             onClick={(e) => {
               e.preventDefault();
               handleNavLinkClick("/all#contact");
