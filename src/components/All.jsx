@@ -11,10 +11,13 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      const sectionId = hash.substring(1); // Remove the '#'
-      const element = document.querySelector(`#${sectionId}`);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+      // Check for #/all and prevent scroll
+      if (hash !== "#/all") {
+        const sectionId = hash.substring(1); // Remove the '#'
+        const element = document.querySelector(`#${sectionId}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   }, []);
