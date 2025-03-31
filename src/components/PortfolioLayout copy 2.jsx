@@ -38,6 +38,9 @@ import HeroSection from "./sections/HeroSection";
 import AboutMeSection from "./sections/AboutSection";
 import SkillsSection from "./sections/SkillsSection";
 import ProjectsSection from "./sections/ProjectsSection";
+import ContactSection from "./sections/Contact";
+import NavBarSection from "./sections/NavBar";
+import FooterSection from "./sections/FooterSection";
 
 import AssistantButton from "./AssistantButton";
 // Component map for easy reference
@@ -53,6 +56,9 @@ import HeroSectionSource from "./sections/HeroSection.jsx?raw";
 import AboutMeSectionSource from "./sections/AboutSection.jsx?raw";
 import SkillsSectionSource from "./sections/SkillsSection.jsx?raw";
 import ProjectsSectionSource from "./sections/ProjectsSection.jsx?raw";
+import ContactSectionSource from "./sections/Contact.jsx?raw";
+import NavBarSectionSource from "./sections/NavBar.jsx?raw";
+import FooterSectionSource from "./sections/FooterSection.jsx?raw";
 
 // Map of component sources
 const componentSources = {
@@ -60,6 +66,9 @@ const componentSources = {
   "AboutMeSection.jsx": AboutMeSectionSource,
   "SkillsSection.jsx": SkillsSectionSource,
   "ProjectsSection.jsx": ProjectsSectionSource,
+   "Contact.jsx": ContactSectionSource,
+  "NavBarSection.jsx": NavBarSectionSource,
+  "FooterSection.jsx": FooterSectionSource,
 };
 
 // Navigation Links Configuration with Icons
@@ -67,6 +76,13 @@ const Icon = () => (
   <img src={ReactLogo} alt="React Logo" className="w-4 h-4 mr-2" />
 );
 const navigationLinks = [
+  {
+    name: "NavBarSection",
+    path: "navbar",
+    icon: Icon,
+    description: "Navigation bar component",
+    filename: "NavBarSection.jsx",
+  },
   {
     name: "HeroSection",
     path: "hero-section",
@@ -94,6 +110,20 @@ const navigationLinks = [
     icon: Icon,
     description: "Portfolio of projects",
     filename: "ProjectsSection.jsx",
+  },
+   {
+    name: "ContactSection",
+    path: "contact",
+    icon: Icon,
+    description: "Contact form and information",
+    filename: "Contact.jsx",
+  },
+    {
+    name: "FooterSection",
+    path: "footer",
+    icon: Icon,
+    description: "Footer section of the site",
+    filename: "FooterSection.jsx",
   },
 ];
 
