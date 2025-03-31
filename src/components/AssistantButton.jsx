@@ -116,14 +116,7 @@ const AssistantButton = () => {
     setTimeout(() => setAnimation(false), 300);
   };
 
-  const toggleTerminal = () => {
-    setShowTerminal(!showTerminal);
-    if (!showTerminal) {
-      setTimeout(() => {
-        terminalInputRef.current?.focus();
-      }, 100);
-    }
-  };
+  
 
   const addToTerminal = (message) => {
     setTerminalHistory((prev) => [...prev, message]);
@@ -358,16 +351,7 @@ const AssistantButton = () => {
             ))}
           </ul>
 
-          {/* Terminal toggle button */}
-          <div className="mt-4 pt-3 border-t border-[#3e3e42]">
-            <button
-              onClick={toggleTerminal}
-              className="w-full bg-[#2d2d30] hover:bg-[#3e3e42] text-gray-300 py-2 rounded transition-colors duration-200 flex items-center justify-center"
-            >
-              <TerminalIcon className="w-4 h-4 mr-2" />
-              <span className="text-xs">Open Terminal</span>
-            </button>
-          </div>
+         
 
           {/* Add a footer */}
           <div className="mt-4 pt-2 border-t border-[#3e3e42] text-center text-xs text-gray-400">
