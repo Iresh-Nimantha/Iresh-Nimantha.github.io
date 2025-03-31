@@ -12,18 +12,17 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
-      // Remove '/all#' from the beginning of the hash
-      const cleanedHash = hash.replace('/all#', '');
+      // Check if hash starts with '/all#'
+      if (hash.startsWith('/all#')) {
+        // Extract the section ID after '/all#'
+        const sectionId = hash.substring(5); // 5 is the length of '/all#'
 
-      // Extract the section ID (e.g., 'skills', 'about', 'contact')
-      const parts = cleanedHash.split("#");
-      const sectionId = parts[1]; // Get the second part
-
-      // Only attempt to scroll if a sectionId exists
-      if (sectionId) {
-        const element = document.querySelector(`#${sectionId}`); // Use '#' to target the id
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+        // Only attempt to scroll if a sectionId exists
+        if (sectionId) {
+          const element = document.querySelector(`#${sectionId}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
         }
       }
     }
