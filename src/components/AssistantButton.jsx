@@ -182,7 +182,7 @@ const AssistantButton = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-8 right-4 z-50">
       {/* Floating hint */}
       {showHint && (
         <div className="absolute bottom-16 right-2 animate-bounce-subtle">
