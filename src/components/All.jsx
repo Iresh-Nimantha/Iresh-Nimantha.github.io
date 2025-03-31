@@ -16,10 +16,7 @@ function All() {
         return;
       }
       if (hash.startsWith('#/all#')) {
-        // Extract the section ID after #/all#
-        const sectionId = hash.substring(7); // 7 is the length of '#/all#'
-
-        // Only attempt to scroll if a sectionId exists
+        const sectionId = hash.substring(7);
         if (sectionId) {
           const element = document.querySelector(`#${sectionId}`);
           if (element) {
