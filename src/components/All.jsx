@@ -12,8 +12,12 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
+      // Remove '/all' from the beginning of the hash
+      const cleanedHash = hash.replace('/all#', '');
+
       // Extract the section ID (e.g., 'skills', 'about', 'contact')
-      const sectionId = hash.split("#")[1]; // Split the hash at '#' and get the second part
+      const sectionId = cleanedHash.split("#")[1]; // Split the cleaned hash at '#' and get the second part
+
       if (sectionId) {
         const element = document.querySelector(`#${sectionId}`); // Use '#' to target the id
         if (element) {
