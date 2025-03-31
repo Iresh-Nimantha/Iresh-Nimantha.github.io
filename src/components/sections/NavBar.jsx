@@ -48,7 +48,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between">
           {/* Logo and Name */}
           <motion.a
-            href="#home"
+            href="/all#home"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -131,7 +131,7 @@ const NavBar = () => {
                   </a>
                 ))}
                 <a
-                  href="#contact"
+                  href="/all#contact"
                   onClick={() => handleNavLinkClick("/all#contact")}
                   className="inline-block w-full text-center py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg text-white font-medium mt-2"
                 >
