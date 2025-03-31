@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import {
   Clipboard,
+  Star,
   XIcon,
   BotIcon,
   HomeIcon,
@@ -11,6 +12,8 @@ import {
   ChevronRightIcon,
   CheckIcon,
   HelpCircleIcon,
+  TerminalIcon,
+  BriefcaseIcon,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -18,17 +21,27 @@ const AssistantButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [copiedCommand, setCopiedCommand] = useState(null);
   const [showHint, setShowHint] = useState(true);
+  const [showTerminal, setShowTerminal] = useState(false);
+  const [terminalInput, setTerminalInput] = useState("");
+  const [terminalHistory, setTerminalHistory] = useState([]);
   const navigate = useNavigate();
   const popupRef = useRef(null);
   const buttonRef = useRef(null);
+  const terminalInputRef = useRef(null);
   const [animation, setAnimation] = useState(false);
 
   const commands = [
     {
+      label: "Open Full Portfolio",
+      command: "all",
+      action: () => openSection("all"),
+      icon: <HomeIcon className="w-4 h-4 mr-2" />,
+    },
+    {
       label: "Open Hero Section",
       command: "hero",
       action: () => openSection("hero"),
-      icon: <HomeIcon className="w-4 h-4 mr-2" />,
+      icon: <Star className="w-4 h-4 mr-2" />,
     },
     {
       label: "Open About Me Section",
@@ -56,10 +69,23 @@ const AssistantButton = () => {
     },
   ];
 
+  const helpCommands = [
+    { command: "help", description: "Show available commands" },
+    { command: "clear", description: "Clear terminal history" },
+    { command: "all", description: "Navigate to full portfolio" },
+    { command: "hero", description: "Navigate to hero section" },
+    { command: "aboutme", description: "Navigate to about me section" },
+    { command: "skills", description: "Navigate to skills section" },
+    { command: "projects", description: "Navigate to projects section" },
+    { command: "contact", description: "Navigate to contact section" },
+    { command: "terminal", description: "Toggle terminal interface" },
+  ];
+
   const openSection = (section) => {
     navigate(`/${section}`);
     setIsOpen(false);
     setShowHint(false); // Hide hint after navigation
+    addToTerminal(`Navigating to /${section}...`);
   };
 
   const copyToClipboard = (text) => {
@@ -88,6 +114,53 @@ const AssistantButton = () => {
     setIsOpen(!isOpen);
     setShowHint(false); // Hide hint when button is clicked
     setTimeout(() => setAnimation(false), 300);
+  };
+
+  const toggleTerminal = () => {
+    setShowTerminal(!showTerminal);
+    if (!showTerminal) {
+      setTimeout(() => {
+        terminalInputRef.current?.focus();
+      }, 100);
+    }
+  };
+
+  const addToTerminal = (message) => {
+    setTerminalHistory((prev) => [...prev, message]);
+  };
+
+  const handleTerminalSubmit = (e) => {
+    e.preventDefault();
+    const cmd = terminalInput.trim().toLowerCase();
+
+    // Add command to history
+    addToTerminal(`> ${cmd}`);
+
+    // Process command
+    if (cmd === "help") {
+      addToTerminal("Available commands:");
+      helpCommands.forEach((c) => {
+        addToTerminal(`  ${c.command.padEnd(10)} - ${c.description}`);
+      });
+    } else if (cmd === "clear") {
+      setTerminalHistory([]);
+    } else if (cmd === "terminal") {
+      addToTerminal("Toggling terminal interface...");
+      setTimeout(() => toggleTerminal(), 500);
+    } else {
+      const foundCommand = commands.find((c) => c.command === cmd);
+      if (foundCommand) {
+        addToTerminal(`Executing: ${cmd}`);
+        foundCommand.action();
+      } else {
+        addToTerminal(
+          `Command not found: ${cmd}. Type 'help' for available commands.`
+        );
+      }
+    }
+
+    // Clear input
+    setTerminalInput("");
   };
 
   // Auto-hide hint after 10 seconds
@@ -126,6 +199,55 @@ const AssistantButton = () => {
             </div>
             {/* Triangle pointer */}
             <div className="absolute -bottom-2 right-6 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-[#0069b3]"></div>
+          </div>
+        </div>
+      )}
+
+      {/* Terminal Interface */}
+      {showTerminal && (
+        <div className="absolute bottom-16 right-0 w-80 h-64 bg-[#1e1e1e] rounded-lg shadow-xl overflow-hidden border border-[#3e3e42] animate-fadeIn">
+          <div className="flex justify-between items-center bg-[#323233] px-3 py-2">
+            <div className="flex items-center">
+              <TerminalIcon className="w-4 h-4 mr-2 text-[#007acc]" />
+              <span className="text-xs font-semibold text-white">
+                Portfolio Terminal
+              </span>
+            </div>
+            <button
+              onClick={toggleTerminal}
+              className="p-1 rounded-full hover:bg-[#3e3e42] transition-colors duration-200"
+            >
+              <XIcon className="w-3 h-3 text-gray-400 hover:text-white" />
+            </button>
+          </div>
+
+          <div className="p-3 h-48 overflow-y-auto text-gray-300 font-mono text-xs">
+            {terminalHistory.length === 0 ? (
+              <div className="text-gray-500">
+                Type 'help' to see available commands
+              </div>
+            ) : (
+              terminalHistory.map((line, i) => (
+                <div key={i} className="whitespace-pre-wrap mb-1">
+                  {line}
+                </div>
+              ))
+            )}
+
+            <form
+              onSubmit={handleTerminalSubmit}
+              className="flex items-center mt-2"
+            >
+              <span className="text-green-500 mr-1">{">"}</span>
+              <input
+                ref={terminalInputRef}
+                type="text"
+                value={terminalInput}
+                onChange={(e) => setTerminalInput(e.target.value)}
+                className="flex-1 bg-transparent border-none outline-none text-white"
+                autoFocus
+              />
+            </form>
           </div>
         </div>
       )}
@@ -235,6 +357,17 @@ const AssistantButton = () => {
               </li>
             ))}
           </ul>
+
+          {/* Terminal toggle button */}
+          <div className="mt-4 pt-3 border-t border-[#3e3e42]">
+            <button
+              onClick={toggleTerminal}
+              className="w-full bg-[#2d2d30] hover:bg-[#3e3e42] text-gray-300 py-2 rounded transition-colors duration-200 flex items-center justify-center"
+            >
+              <TerminalIcon className="w-4 h-4 mr-2" />
+              <span className="text-xs">Open Terminal</span>
+            </button>
+          </div>
 
           {/* Add a footer */}
           <div className="mt-4 pt-2 border-t border-[#3e3e42] text-center text-xs text-gray-400">
