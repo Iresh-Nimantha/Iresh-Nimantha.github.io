@@ -1,10 +1,33 @@
-// All.jsx (Minimal Version)
-import React from 'react';
+// All.jsx
+import React, { useEffect, useRef } from "react";
+import NavBar from "./sections/NavBar";
+import HeroSection from "./sections/HeroSection";
+import AboutMeSection from "./sections/AboutSection";
+import SkillsSection from "./sections/SkillsSection";
+import ProjectsSection from "./sections/ProjectsSection";
+import Contact from "./sections/Contact";
+import FooterSection from "./sections/FooterSection";
 
 function All() {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
+
   return (
     <div>
-      <h1>All Component Loaded (Testing)</h1>
+      <NavBar />
+      <HeroSection />
+      <AboutMeSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <Contact />
+      <FooterSection />
     </div>
   );
 }
