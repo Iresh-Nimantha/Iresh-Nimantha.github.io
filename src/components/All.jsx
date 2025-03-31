@@ -9,41 +9,37 @@ import FooterSection from "./sections/FooterSection";
 import { useLocation } from 'react-router-dom';
 
 function All() {
-  const location = useLocation();
-
   useEffect(() => {
-    if (location.pathname === '/all') {
-      const hash = window.location.hash;
-      if (hash) {
-        if (hash === '#/all') {
-          return;
-        }
-        if (hash.startsWith('#/all#')) {
-          const sectionId = hash.substring(7);
-          if (sectionId) {
-            const element = document.querySelector(`#${sectionId}`);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
-        } else if (hash.startsWith('/all#')) {
-          const sectionId = hash.substring(5);
-          if (sectionId) {
-            const element = document.querySelector(`#${sectionId}`);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth' });
-            }
-          }
-        } else {
-          const sectionId = hash.substring(1);
+    const hash = window.location.hash;
+    if (hash) {
+      if (hash === '#/all') {
+        return;
+      }
+      if (hash.startsWith('#/all#')) {
+        const sectionId = hash.substring(7);
+        if (sectionId) {
           const element = document.querySelector(`#${sectionId}`);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }
+      } else if (hash.startsWith('/all#')) {
+        const sectionId = hash.substring(5);
+        if (sectionId) {
+          const element = document.querySelector(`#${sectionId}`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      } else {
+          const sectionId = hash.substring(1);
+          const element = document.querySelector(`#${sectionId}`);
+          if (element) {
+            element.scrollIntoView({behavior: 'smooth'})
+          }
       }
     }
-  }, [location.pathname, window.location.hash]);
+  }, []);
 
   return (
     <div>
