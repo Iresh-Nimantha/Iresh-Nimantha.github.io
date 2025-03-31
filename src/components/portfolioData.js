@@ -6,12 +6,12 @@ import framer from "../assets/framer.png";
 import threejs from "../assets/Threejs.svg";
 
 import expressjs from "../assets/expressjs.png";
-//import mongoDB from "../assets/mongodb.png";
+import mongoDB from "../assets/mongodb.png";
 import nodejs from "../assets/nodejs.png";
 
 import mysql from "../assets/mysql.svg";
 import php from "../assets/php.svg";
-//import wordpress from "../assets/wordpress.svg";
+import wordpress from "../assets/wordpress.svg";
 import elementor from "../assets/elementor.svg";
 //import css from "../assets/css.svg";
 import javascript from "../assets/js.svg";
@@ -81,7 +81,7 @@ export const fullStackProjects = [
     },
     spotlight: spotlight3,
     tags: [
-      { id: 1, name: "MongoDB", path: expressjs },
+      { id: 1, name: "MongoDB", path: mongoDB },
       { id: 2, name: "Express.js", path: expressjs },
       { id: 3, name: "React.js", path: react },
       { id: 4, name: "Node.js", path: nodejs },
@@ -171,9 +171,9 @@ export const wordpressProjects = [
     },
     spotlight: spotlight5,
     tags: [
-      { id: 1, name: "WordPress", path: expressjs },
+      { id: 1, name: "WordPress", path: wordpress },
       { id: 2, name: "Elementor", path: elementor },
-      { id: 3, name: "CSS", path: expressjs },
+      { id: 3, name: "CSS", path: css },
       { id: 4, name: "JavaScript", path: javascript },
     ],
   },
