@@ -7,11 +7,11 @@ const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
 const navItems = [
-    { name: "Home", link: "/all#home" },
-    { name: "About Me", link: "/all#about" },
-    { name: "Skills", link: "/all#skills" },
-    { name: "Projects", link: "/all#projects" },
-    { name: "Contact Me", link: "/all#contact" },
+{ name: "Home", link: "#/all#home" },
+    { name: "About Me", link: "#/all#about" },
+    { name: "Skills", link: "#/all#skills" },
+    { name: "Projects", link: "#/all#projects" },
+    { name: "Contact Me", link: "#/all#contact" },
 ];
 
   useEffect(() => {
