@@ -5,7 +5,7 @@ import laravelIcon from "../../assets/laravel.png";
 import mernIcon from "../../assets/mern.png";
 import reactIcon from "../../assets/vite.svg";
 import tailwindIcon from "../../assets/tailwindcss.png";
-import pythonIcon from "../../Python.svg;
+import pythonIcon from "../../assets/Python.svg";
 import wordpressIcon from "../../assets/wordpress.svg";
 import bootstrapIcon from "../../assets/Bootstrap.svg";
 import threeJsIcon from "../../assets/Threejs.svg";
