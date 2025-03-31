@@ -116,7 +116,14 @@ const AssistantButton = () => {
     setTimeout(() => setAnimation(false), 300);
   };
 
-  
+  const toggleTerminal = () => {
+    setShowTerminal(!showTerminal);
+    if (!showTerminal) {
+      setTimeout(() => {
+        terminalInputRef.current?.focus();
+      }, 100);
+    }
+  };
 
   const addToTerminal = (message) => {
     setTerminalHistory((prev) => [...prev, message]);
@@ -262,7 +269,7 @@ const AssistantButton = () => {
       {isOpen && (
         <div
           ref={popupRef}
-          className="absolute bottom-16 right-0 bg-gradient-to-b from-[#2d2d30] to-[#252526] text-white rounded-lg shadow-xl p-5 w-80 border border-[#3e3e42] animate-fadeIn"
+          className="absolute bottom-1 right-0 bg-gradient-to-b from-[#2d2d30] to-[#252526] text-white rounded-lg shadow-xl p-5 w-80 border border-[#3e3e42] animate-fadeIn"
           style={{
             boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)",
             animation: "fadeIn 0.2s ease-out",
@@ -350,8 +357,6 @@ const AssistantButton = () => {
               </li>
             ))}
           </ul>
-
-         
 
           {/* Add a footer */}
           <div className="mt-4 pt-2 border-t border-[#3e3e42] text-center text-xs text-gray-400">
