@@ -282,16 +282,16 @@ const PortfolioLayout = () => {
       const commandLower = command.toLowerCase();
 
       // Mapping commands to sections
-      const commandMap = {
-        hero: "/hero",
-        aboutme: "/about-me",
-        skills: "/skills",
-        projects: "/projects",
-        contact: "/contact",
-        all: "all",
-        help: "Displays the list of available commands.",
-      };
-
+     
+const commandMap = {
+  hero: "/hero",
+  aboutme: "/about-me",
+  skills: "/skills",
+  projects: "/projects",
+  contact: "/contact",
+  all: "/", // Adjust if you have a specific path for "all"
+  help: "Displays the list of available commands.",
+};
       // Show the user's command in the terminal-like output
       newOutput.push(
         `<span class="text-green-500">➜</span> <span class="text-blue-400">~/portfolio</span> ${command}`
