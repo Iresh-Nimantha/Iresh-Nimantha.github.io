@@ -12,6 +12,10 @@ function All() {
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
+      if (hash === '#/all') {
+        // Do nothing when hash is #/all
+        return;
+      }
       // Check for #/all# or /all# formats
       if (hash.startsWith('#/all#')) {
         // Extract the section ID after #/all#
