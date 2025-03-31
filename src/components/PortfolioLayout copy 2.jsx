@@ -289,7 +289,7 @@ const commandMap = {
   skills: "/skills",
   projects: "/projects",
   contact: "/contact",
-  all: "/", // Adjust if you have a specific path for "all"
+  all: "/all", // Adjust if you have a specific path for "all"
   help: "Displays the list of available commands.",
 };
       // Show the user's command in the terminal-like output
