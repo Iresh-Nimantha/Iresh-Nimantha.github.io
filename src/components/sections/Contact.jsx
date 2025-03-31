@@ -24,7 +24,7 @@ const AboutMe = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-gray-900 relative">
+    <section id="contact" className="py-20 bg-gray-900 relative">
       {/* Background elements */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-900/10 to-transparent"></div>
