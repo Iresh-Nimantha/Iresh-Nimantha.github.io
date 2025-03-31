@@ -5,7 +5,7 @@ import laravelIcon from "../../assets/laravel.png";
 import mernIcon from "../../assets/mern.png";
 import reactIcon from "../../assets/vite.svg";
 import tailwindIcon from "../../assets/tailwindcss.png";
-//import pythonIcon from "/src/assets/python.svg";
+import pythonIcon from "../../Python.svg;
 import wordpressIcon from "../../assets/wordpress.svg";
 import bootstrapIcon from "../../assets/Bootstrap.svg";
 import threeJsIcon from "../../assets/Threejs.svg";
@@ -47,7 +47,7 @@ const skillsData = [
   },
   {
     name: "Python",
-    icon: "../../assets/python.svg",
+    icon: pythonIcon,
     color: "#3776AB",
   },
   {
