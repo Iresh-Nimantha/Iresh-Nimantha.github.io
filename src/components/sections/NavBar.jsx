@@ -6,7 +6,6 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
 const navItems = [
   { name: "Home", link: "/all#home" },
   { name: "About Me", link: "/all#about" },
@@ -14,8 +13,6 @@ const navItems = [
   { name: "Projects", link: "/all#projects" },
   { name: "Contact Me", link: "/all#contact" },
 ];
-
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
