@@ -16,27 +16,16 @@ function All() {
         return;
       }
       if (hash.startsWith('#/all#')) {
-        const sectionId = hash.substring(7);
+        // Extract the section ID after #/all#
+        const sectionId = hash.substring(7); // 7 is the length of '#/all#'
+
+        // Only attempt to scroll if a sectionId exists
         if (sectionId) {
           const element = document.querySelector(`#${sectionId}`);
           if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
           }
         }
-      } else if (hash.startsWith('/all#')) {
-        const sectionId = hash.substring(5);
-        if (sectionId) {
-          const element = document.querySelector(`#${sectionId}`);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-      } else {
-          const sectionId = hash.substring(1);
-          const element = document.querySelector(`#${sectionId}`);
-          if (element) {
-            element.scrollIntoView({behavior: 'smooth'})
-          }
       }
     }
   }, []);
