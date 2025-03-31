@@ -13,7 +13,7 @@ import mysql from "../assets/mysql.svg";
 import php from "../assets/php.svg";
 //import wordpress from "../assets/wordpress.svg";
 import elementor from "../assets/elementor.svg";
-import cssIcon from "src/assets/css.svg";
+import cssIcon from "../assets/css.svg";
 import javascript from "../assets/js.svg";
 import webgl from "../assets/webgl.svg";
 
