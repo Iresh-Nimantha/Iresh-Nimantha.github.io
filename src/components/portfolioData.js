@@ -46,8 +46,8 @@ import ucmcVideo from "../assets/wpUCMC.mp4";
 export const fullStackProjects = [
   {
     id: 1,
-    title: "Aswanna - AI Podcast Platform",
-    desc: "An AI-powered platform that helps farmers identify crop diseases by analyzing uploaded images.",
+    title: "Aswanna - AI Agriculture Platform",
+    desc: "An AI-powered platform that helps farmers identify crop diseases by analyzing uploaded images and other specific details about crops.",
     subdesc:
       "Built with React, Tailwind CSS, Laravel, and Google Gemini API. This is a group project, and my part includes developing the landing page, implementing the crop disease identification feature, integrating feedback and contact sections, displaying agricultural officer details, creating a forum section, and adding a chatbot.",
     href: "https://github.com/sahansara/Agricultural-Information-Platform-with-Crop-Calendar.git",
