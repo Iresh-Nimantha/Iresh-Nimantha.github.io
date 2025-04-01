@@ -71,7 +71,7 @@ const AboutMe = () => {
 
               <p className="text-gray-300 mb-6 leading-relaxed">
                 I am an undergraduate student at the University of Colombo,
-                Faculty of Technology, specializing in Bachelor of Information
+                Faculty of Technology, Honours in Bachelor of Information
                 and Communication Technology (BICT). I love creating innovative
                 web solutions and exploring new technologies.
               </p>
