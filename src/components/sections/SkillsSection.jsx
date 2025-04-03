@@ -14,6 +14,7 @@ import jsIcon from "../../assets/js.svg";
 import phpIcon from "../../assets/php.svg";
 import htmlIcon from "../../assets/HTML.svg";
 import cssIcon from "../../assets/css.svg";
+import vueIcon from "../../assets/vue.svg";
 import { style } from "framer-motion/client";
 
 // Note: Import your actual icons here
@@ -37,8 +38,11 @@ const skillsData = [
     name: "React.js",
     icon: reactIcon,
     color: "#61DAFB",
+  }, {
+    name: "Vue.js",
+    icon: vueIcon,
+    color: "#66ff99",
   },
-
   // Backend & Server-Side Languages
   {
     name: "PHP",
@@ -89,7 +93,7 @@ const skillsData = [
   {
     name: "Three.js",
     icon: threeJsIcon,
-    color: "#000000",
+    color: "#ffffff",
   },
   {
     name: "WordPress",
