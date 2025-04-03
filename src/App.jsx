@@ -22,7 +22,7 @@ function App() {
     <HashRouter>
       <Routes>
           <Route path="/" element={<PortfolioLayout3 />} />
-         <Route path="about-me" element={<AboutMeSection />} />
+         <Route path="aboutme" element={<AboutMeSection />} />
          <Route path="hero" element={<HeroSection />} />
          <Route path="skills" element={<SkillsSection />} />
          <Route path="projects" element={<ProjectsSection />} />
