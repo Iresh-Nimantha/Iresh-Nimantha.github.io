@@ -4,6 +4,7 @@ import tailwind from "../assets/tailwindcss.png";
 import laravel from "../assets/laravel.png";
 import framer from "../assets/framer.png";
 import threejs from "../assets/Threejs.svg";
+import vue from "../assets/vue.svg";
 
 import expressjs from "../assets/expressjs.png";
 import mongoDB from "../assets/mongodb.svg";
@@ -33,6 +34,7 @@ import ucmcLogo from "../assets/UCMC.png";
 import portfolioLogo from "../assets/jobNexus.png";
 import rcfmsLogo from "../assets/RCFMS.png";
 import writeSphere from "../assets/WriteSphere.png";
+import shoeStyleLogo from "../assets/ShoeStyle.png";
 
 //videos
 import RCFMSVideo from "../assets/RCFMS.mp4";
@@ -41,6 +43,7 @@ import aswannaVideo from "../assets/aswanna.mp4";
 import writeSphereVideo from "../assets/WriteSphere.mp4";
 import tDportfolioVideo from "../assets/3Dportfolio.mp4";
 import ucmcVideo from "../assets/wpUCMC.mp4";
+import ShoeStyleVideo from "../assets/ShoeStyle.mp4";
 
 // Full Stack Projects (id: 1, 3, 4)
 export const fullStackProjects = [
@@ -108,12 +111,34 @@ export const fullStackProjects = [
       { id: 4, name: "PHP", path: php },
     ],
   },
+  {
+    id: 4,
+    title: "Shoe Style - Online Shoe Store",
+    desc: "A modern e-commerce platform for premium shoes, offering seamless shopping and secure checkout.",
+    subdesc:
+      "Built with Vue 3, Tailwind CSS, Laravel, and Stripe API. This project includes product browsing, a secure checkout system, user authentication, interactive animations, and an admin dashboard for inventory management.",
+    href: "https://github.com/Iresh-Nimantha/ShoeStyle-Online_Shoe_Store.git",
+    texture: ShoeStyleVideo,
+    logo: shoeStyleLogo,
+    logoStyle: {
+      backgroundColor: "#0a1429",
+      border: "0.2px solid #333",
+      boxShadow: "0px 0px 60px 0px rgba(255, 215, 0, 0.3)",
+    },
+    spotlight: "spotlightShoeShop",
+    tags: [
+      { id: 1, name: "Vue.js", path: vue },
+      { id: 2, name: "TailwindCSS", path: tailwind },
+      { id: 3, name: "Laravel", path: laravel },
+      { id: 4, name: "Framer Motion", path: framer },
+    ],
+  },
 ];
 
 // Frontend Projects (id: 2, 6)
 export const frontEndProjects = [
   {
-    id: 4,
+    id: 5,
     title: "Portfolios - Personalized 3D Websites",
     desc: "A 3D portfolio website with customizable and interactive features.",
     subdesc: "Built with React, Three.js, and Tailwind CSS.",
@@ -134,7 +159,7 @@ export const frontEndProjects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "RCFMS - Road Crime Fine Management System",
     desc: "A web-based system for managing road crime fines efficiently.",
     subdesc: "Built with React.js and Tailwind CSS.",
@@ -157,7 +182,7 @@ export const frontEndProjects = [
 // WordPress Projects (id: 5)
 export const wordpressProjects = [
   {
-    id: 6,
+    id: 7,
     title: "UCMC Web",
     desc: "Official website for the University of Colombo Music Circle.",
     subdesc: "Created with WordPress and Elementor.",
