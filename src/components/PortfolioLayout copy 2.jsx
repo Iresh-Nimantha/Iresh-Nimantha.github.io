@@ -38,7 +38,7 @@ import HeroSection from "./sections/HeroSection";
 import AboutMeSection from "./sections/AboutSection";
 import SkillsSection from "./sections/SkillsSection";
 import ProjectsSection from "./sections/ProjectsSection";
-import ContactSection from "./sections/Contact";
+//import ContactSection from "./sections/Contact";
 import NavBarSection from "./sections/NavBar";
 import FooterSection from "./sections/FooterSection";
 
@@ -56,7 +56,7 @@ import HeroSectionSource from "./sections/HeroSection.jsx?raw";
 import AboutMeSectionSource from "./sections/AboutSection.jsx?raw";
 import SkillsSectionSource from "./sections/SkillsSection.jsx?raw";
 import ProjectsSectionSource from "./sections/ProjectsSection.jsx?raw";
-import ContactSectionSource from "./sections/Contact.jsx?raw";
+//import ContactSectionSource from "./sections/Contact.jsx?raw";
 import NavBarSectionSource from "./sections/NavBar.jsx?raw";
 import FooterSectionSource from "./sections/FooterSection.jsx?raw";
 
@@ -66,7 +66,7 @@ const componentSources = {
   "AboutMeSection.jsx": AboutMeSectionSource,
   "SkillsSection.jsx": SkillsSectionSource,
   "ProjectsSection.jsx": ProjectsSectionSource,
-   "Contact.jsx": ContactSectionSource,
+   //"Contact.jsx": ContactSectionSource,
   "NavBarSection.jsx": NavBarSectionSource,
   "FooterSection.jsx": FooterSectionSource,
 };
@@ -111,13 +111,13 @@ const navigationLinks = [
     description: "Portfolio of projects",
     filename: "ProjectsSection.jsx",
   },
-   {
-    name: "ContactSection",
-    path: "contact",
-    icon: Icon,
-    description: "Contact form and information",
-    filename: "Contact.jsx",
-  },
+  //  {
+  //   name: "ContactSection",
+  //   path: "contact",
+  //   icon: Icon,
+  //   description: "Contact form and information",
+  //   filename: "Contact.jsx",
+  // },
     {
     name: "FooterSection",
     path: "footer",
